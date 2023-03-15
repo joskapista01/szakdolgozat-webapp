@@ -1,0 +1,15 @@
+.new-server-form {
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
+
+.bodyWrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.appBody{
+    width: 95%;
+}
