@@ -19,12 +19,11 @@ function login(username, password) {
     const credentials = Buffer.from(username+':'+password).toString('base64')
     const requestOptions = {
         method: 'POST',
-        mode: 'cors',
         headers: { 
             'Authorization': 'Basic ' + credentials
          }
     };
-    
+
     return fetch(apiUrl+`/users/login`, requestOptions)
         .then(handleResponse)
         .then(user => {
@@ -110,7 +109,6 @@ function updateServer(id){
 function createServer(serverName){
     const requestOptions = {
         method: 'POST',
-        mode: 'cors',
         headers: authHeader(),
         body: JSON.stringify({
             name: serverName
