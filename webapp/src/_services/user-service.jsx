@@ -19,6 +19,7 @@ function login(username, password) {
     const credentials = Buffer.from(username+':'+password).toString('base64')
     const requestOptions = {
         method: 'POST',
+        mode: 'no-cors',
         headers: { 
             'Authorization': 'Basic ' + credentials
          }
@@ -73,6 +74,7 @@ function handleResponse(response) {
 function getServers() {
     const requestOptions = {
         method: 'GET',
+        mode: 'no-cors',
         headers: authHeader()
     };
 
@@ -82,6 +84,7 @@ function getServers() {
 function getServerInfo(id) {
     const requestOptions = {
         method: 'GET',
+        mode: 'no-cors',
         headers: authHeader()
     };
 
@@ -91,6 +94,7 @@ function getServerInfo(id) {
 function deleteServer(id){
     const requestOptions = {
         method: 'DELETE',
+        mode: 'no-cors',
         headers: authHeader()
     };
 
@@ -100,6 +104,7 @@ function deleteServer(id){
 function updateServer(id){
     const requestOptions = {
         method: 'PUT',
+        mode: 'no-cors',
         headers: authHeader()
     };
 
@@ -109,6 +114,7 @@ function updateServer(id){
 function createServer(serverName){
     const requestOptions = {
         method: 'POST',
+        mode: 'no-cors',
         headers: authHeader(),
         body: JSON.stringify({
             name: serverName
