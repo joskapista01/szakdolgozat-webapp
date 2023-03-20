@@ -24,6 +24,8 @@ function login(username, password) {
             'Authorization': 'Basic ' + credentials
          }
     };
+    
+    console.log(requestOptions)
 
     return fetch(apiUrl+`/users/login`, requestOptions)
         .then(handleResponse)
