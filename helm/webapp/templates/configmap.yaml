@@ -1,8 +1,0 @@
-kind: ConfigMap 
-apiVersion: v1 
-metadata:
-  name: {{ include "webapp.fullname" . }} 
-  labels:
-    {{- include "webapp.labels" . | nindent 4 }}
-data:
-  buildVersion: {{ .Values.buildVersion | toString | b64enc }}
