@@ -25,7 +25,6 @@ function login(username, password) {
          }
     };
     
-    console.log(requestOptions)
 
     return fetch(apiUrl+`/users/login`, requestOptions)
         .then(handleResponse)
@@ -50,6 +49,7 @@ function logout() {
 /*unction getAll() {
     const requestOptions = {
         method: 'GET',
+        mode: 'cors',
         headers: authHeader()
     };
 
@@ -76,7 +76,7 @@ function handleResponse(response) {
 function getServers() {
     const requestOptions = {
         method: 'GET',
-        mode: 'no-cors',
+        mode: 'cors',
         headers: authHeader()
     };
 
@@ -86,7 +86,7 @@ function getServers() {
 function getServerInfo(id) {
     const requestOptions = {
         method: 'GET',
-        mode: 'no-cors',
+        mode: 'cors',
         headers: authHeader()
     };
 
@@ -96,7 +96,7 @@ function getServerInfo(id) {
 function deleteServer(id){
     const requestOptions = {
         method: 'DELETE',
-        mode: 'no-cors',
+        mode: 'cors',
         headers: authHeader()
     };
 
@@ -106,7 +106,7 @@ function deleteServer(id){
 function updateServer(id){
     const requestOptions = {
         method: 'PUT',
-        mode: 'no-cors',
+        mode: 'cors',
         headers: authHeader()
     };
 
@@ -116,7 +116,7 @@ function updateServer(id){
 function createServer(serverName){
     const requestOptions = {
         method: 'POST',
-        mode: 'no-cors',
+        mode: 'cors',
         headers: authHeader(),
         body: JSON.stringify({
             name: serverName
