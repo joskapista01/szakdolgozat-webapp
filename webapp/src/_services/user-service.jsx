@@ -19,7 +19,7 @@ function login(username, password) {
     const credentials = Buffer.from(username+':'+password).toString('base64')
     const requestOptions = {
         method: 'POST',
-        mode: 'no-cors',
+        mode: 'cors',
         headers: { 
             'Authorization': 'Basic ' + credentials
          }
