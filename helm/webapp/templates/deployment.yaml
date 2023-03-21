@@ -34,7 +34,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
           - name: BUILD_VERSION
-            value: {{ .Values.buildVersion | toString }}  
+            value: {{ .Values.buildVersion }}  
           ports:
             - name: http
               containerPort: 80
