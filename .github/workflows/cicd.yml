@@ -41,8 +41,8 @@ jobs:
       - name: Update build number
         run: |
           echo $BUILD_ID
-          sed -i "/buildVersion:*/c\buildVersion: ${BUILD_ID}" helm/api/values.yaml
-          cat helm/api/values.yaml
+          sed -i "/buildVersion:*/c\buildVersion: ${BUILD_ID}" helm/webapp/values.yaml
+          cat helm/webapp/values.yaml
         env:
           BUILD_ID: ${{ steps.build_id.outputs.id }}
           
