@@ -54,12 +54,14 @@ function handleResponse(response) {
                 logout();
                 window.location.reload(true);
             } else if(response.status == 400) {
-                alert(response)
+                console.log(data)
+                alert(data["message"])
                 return null
             }
-
-            const error = (data && data.message) || response.statusText;
-            return Promise.reject(error);
+            else {
+                const error = (data && data.message) || response.statusText;
+                return Promise.reject(error);
+            }
         }
         return data;
     });
