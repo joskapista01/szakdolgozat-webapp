@@ -28,10 +28,19 @@ jobs:
         with:
           push: true
           tags: jozseftorocsik/szakdolgozat-webapp:latest
+          
+      - name: Merge development -> main
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: development
+          target_branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       
       - uses: actions/checkout@master
         with:
           fetch-depth: 0
+          ref: main
       
       - name: 'Set build id'
         id: build_id
@@ -48,12 +57,4 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: development
-          
-      - name: Merge development -> main
-        uses: devmasx/merge-branch@master
-        with:
-          type: now
-          from_branch: development
-          target_branch: main
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
