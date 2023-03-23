@@ -46,24 +46,16 @@ function logout() {
     localStorage.removeItem('user');
 }
 
-/*unction getAll() {
-    const requestOptions = {
-        method: 'GET',
-        mode: 'cors',
-        headers: authHeader()
-    };
-
-    return fetch(`http://localhost:5160/users`, requestOptions).then(handleResponse);
-}*/
-
 function handleResponse(response) {
     return response.text().then(text => {
         const data = text && JSON.parse(text);
         if (!response.ok) {
             if (response.status === 401) {
-                // auto logout if 401 response returned from api
                 logout();
                 window.location.reload(true);
+            } else if(response.status == 400) {
+                alert(response)
+                return null
             }
 
             const error = (data && data.message) || response.statusText;
