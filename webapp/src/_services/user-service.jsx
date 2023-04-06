@@ -44,7 +44,14 @@ function login(username, password) {
 function register(username, password) {
     const requestOptions = {
         method: 'POST',
-        mode: 'cors'
+        mode: 'cors',
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        body: {
+            username: username,
+            password: password
+        }
     };
 
     return fetch(apiUrl+`/users/register`, requestOptions)
