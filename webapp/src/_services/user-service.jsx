@@ -74,6 +74,8 @@ function handleResponse(response) {
                 logout();
                 window.location.reload(true);
             } else if(response.status == 400) {
+                console.log(response)
+                console.log(data)
                 alert(data["message"])
                 return null
             } else if(response.status == 500)
