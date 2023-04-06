@@ -16,7 +16,6 @@ class HomePage extends React.Component {
     }
 
     async componentDidMount() {
-        
          this.updateState();
     }
 
