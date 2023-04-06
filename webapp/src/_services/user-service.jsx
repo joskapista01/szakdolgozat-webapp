@@ -4,13 +4,13 @@ import { Buffer } from 'buffer';
 
 export const userService = {
     login,
+    register,
     logout,
     getServers,
     getServerInfo,
     deleteServer,
     updateServer,
-    createServer/*,
-    getAll*/
+    createServer
 };
 
 const apiUrl = process.env.REACT_APP_API_URL
@@ -38,6 +38,19 @@ function login(username, password) {
             }
 
             return user;
+        });
+}
+
+function register(username, password) {
+    const requestOptions = {
+        method: 'POST',
+        mode: 'cors'
+    };
+
+    return fetch(apiUrl+`/users/register`, requestOptions)
+        .then(handleResponse)
+        .then(user => {
+            return login(username, password)
         });
 }
 
