@@ -75,11 +75,11 @@ function handleResponse(response) {
                 window.location.reload(true);
             } else if(response.status == 400) {
                 alert(data["message"])
-                return null
+                return Promise.reject(error);
             } else if(response.status == 500)
             {
                 alert("Something went wrong!")
-                return null
+                return Promise.reject(error);
             }
             else {
                 const error = (data && data.message) || response.statusText;
