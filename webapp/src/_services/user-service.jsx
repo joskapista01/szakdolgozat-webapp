@@ -48,10 +48,10 @@ function register(username, password) {
         headers: { 
             'Content-Type': 'application/json'
         },
-        body: {
+        body: JSON.stringify({
             username: username,
             password: password
-        }
+        })
     };
 
     return fetch(apiUrl+`/users/register`, requestOptions)
@@ -74,8 +74,6 @@ function handleResponse(response) {
                 logout();
                 window.location.reload(true);
             } else if(response.status == 400) {
-                console.log(response)
-                console.log(data)
                 alert(data["message"])
                 return null
             } else if(response.status == 500)
