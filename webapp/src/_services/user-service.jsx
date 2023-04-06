@@ -75,10 +75,12 @@ function handleResponse(response) {
                 window.location.reload(true);
             } else if(response.status == 400) {
                 alert(data["message"])
+                const error = (data && data.message) || response.statusText;
                 return Promise.reject(error);
             } else if(response.status == 500)
             {
                 alert("Something went wrong!")
+                const error = (data && data.message) || response.statusText;
                 return Promise.reject(error);
             }
             else {
