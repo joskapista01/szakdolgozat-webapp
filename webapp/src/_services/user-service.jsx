@@ -78,7 +78,8 @@ function handleResponse(response) {
                 return Promise.reject(error);
             } else if(response.status == 500)
             {
-                const error = (data && data.message) || response.statusText;
+                const error = "Something went wrong!"
+                alert(error)
                 return Promise.reject(error);
             }
             else {
