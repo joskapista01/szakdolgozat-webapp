@@ -75,6 +75,7 @@ function handleResponse(response) {
                 window.location.reload(true);
             } else if(response.status == 400) {
                 const error = (data && data.message) || response.statusText;
+                alert(error)
                 return Promise.reject(error);
             } else if(response.status == 500)
             {
