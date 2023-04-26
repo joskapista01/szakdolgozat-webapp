@@ -56,7 +56,8 @@ class HomePage extends React.Component {
         this.updateState()
     }
 
-    renderServers() {
+
+    render() {
         const handlers = {
             updateServer: this.updateServer, 
             deleteServer: this.deleteServer,
@@ -70,11 +71,6 @@ class HomePage extends React.Component {
                 
             </div>
         );
-    }
-
-    render() {
-        return this.renderServers()
-        
     }
 }
 
