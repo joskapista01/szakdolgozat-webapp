@@ -6,7 +6,7 @@ import "./header.css"
 export default function Header(){
     return(
         <header>
-            <Link to="/login">Logout</Link>
+            <Link to="/login" onClick={userService.logout}>Logout</Link>
         </header>
     )
 }
