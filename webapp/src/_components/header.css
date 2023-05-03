@@ -15,21 +15,18 @@ a:link {
 
   }
   
-  /* visited link */
   a:visited {
     color: beige;
     text-decoration: none;
 
   }
   
-  /* mouse over link */
   a:hover {
     color: hotpink;
     text-decoration: none;
 
   }
   
-  /* selected link */
   a:active {
     color:beige;
     text-decoration: none;

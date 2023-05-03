@@ -9,8 +9,7 @@ export const userService = {
     getServerInfo,
     deleteServer,
     updateServer,
-    createServer/*,
-    getAll*/
+    createServer
 };
 
 const apiUrl = process.env.REACT_APP_API_URL
@@ -32,7 +31,6 @@ function login(username, password) {
             // login successful if there's a user in the response
             if (user) {
                 // store user details and basic auth credentials in local storage 
-                // to keep user logged in between page refreshes
                 user.authdata = window.btoa(username + ':' + password);
                 localStorage.setItem('user', JSON.stringify(user));
             }
@@ -46,6 +44,8 @@ function logout() {
     localStorage.removeItem('user');
 }
 
+//handles responses from server
+//if successful, then returns the response data, else handles the error
 function handleResponse(response) {
     return response.text().then(text => {
         const data = text && JSON.parse(text);

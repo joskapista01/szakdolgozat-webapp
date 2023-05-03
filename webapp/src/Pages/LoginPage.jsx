@@ -29,9 +29,8 @@ class LoginPage extends React.Component {
         e.preventDefault();
 
         this.setState({ submitted: true });
-        const { username, password, returnUrl } = this.state;
+        const { username, password } = this.state;
 
-        // stop here if form is invalid
         if (!(username && password)) {
             return;
         }
