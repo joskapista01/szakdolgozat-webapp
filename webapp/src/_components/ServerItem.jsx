@@ -38,8 +38,11 @@ export default function ServerItem(props){
             <div className={serverFieldStyle.classes}>
                 {serverName}
             </div>
-            <div className={serverFieldStyle.classes}>
-                {serverStatus}
+            <div className={serverFieldStyle.classes}>             
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill={serverStatus=="ON" ? "green" : "red"} class="bi bi-circle-fill" viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="8"/>
+                </svg>
+                {" " + serverStatus}
             </div>
             <div className={serverFieldStyle.classes}>
                 {serverState}

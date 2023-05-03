@@ -4,6 +4,7 @@ import { Buffer } from 'buffer';
 
 export const userService = {
     login,
+    register,
     logout,
     getServers,
     getServerInfo,
@@ -28,7 +29,6 @@ function login(username, password) {
     return fetch(apiUrl+`/users/login`, requestOptions)
         .then(handleResponse)
         .then(user => {
-            // login successful if there's a user in the response
             if (user) {
                 // store user details and basic auth credentials in local storage 
                 user.authdata = window.btoa(username + ':' + password);
@@ -36,6 +36,26 @@ function login(username, password) {
             }
 
             return user;
+        });
+}
+
+function register(username, password) {
+    const requestOptions = {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password
+        })
+    };
+
+    return fetch(apiUrl+`/users/register`, requestOptions)
+        .then(handleResponse)
+        .then(user => {
+            return login(username, password)
         });
 }
 
@@ -54,12 +74,14 @@ function handleResponse(response) {
                 logout();
                 window.location.reload(true);
             } else if(response.status == 400) {
-                alert(data["message"])
-                return null
+                const error = (data && data.message) || response.statusText;
+                alert(error)
+                return Promise.reject(error);
             } else if(response.status == 500)
             {
-                alert("Something went wrong!")
-                return null
+                const error = "Something went wrong!"
+                alert(error)
+                return Promise.reject(error);
             }
             else {
                 const error = (data && data.message) || response.statusText;
