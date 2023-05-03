@@ -30,6 +30,7 @@ function login(username, password) {
         .then(handleResponse)
         .then(user => {
             if (user) {
+                // store user details and basic auth credentials in local storage 
                 user.authdata = window.btoa(username + ':' + password);
                 localStorage.setItem('user', JSON.stringify(user));
             }
@@ -63,6 +64,8 @@ function logout() {
     localStorage.removeItem('user');
 }
 
+//handles responses from server
+//if successful, then returns the response data, else handles the error
 function handleResponse(response) {
     return response.text().then(text => {
         const data = text && JSON.parse(text);
