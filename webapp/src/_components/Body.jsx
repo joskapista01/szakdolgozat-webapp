@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ServerItem from "./ServerItem";
 import "./body.css"
 
+// Defines the body of the HomePage
 export default function Body(props) {
     const {servers, loading} = props.content
     const {createServer} = props.handlers
@@ -30,15 +31,15 @@ export default function Body(props) {
                 </div>
                 {loading && <em>Loading servers...</em>}
                 {!loading &&
+                    // Lists servers
                     <div>
-                        
                         {servers.map(server =>
                             <ServerItem key={server.id} handlers={props.handlers} serverInfo={server}/>
                         )}
                     </div>
                 }
             </div>
-            </div>
+        </div>
             
         )
     }

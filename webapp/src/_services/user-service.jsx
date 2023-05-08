@@ -15,6 +15,7 @@ export const userService = {
 
 const apiUrl = process.env.REACT_APP_API_URL
 
+// Sends a login request to the server with the recieved parameters to authenticate the user
 function login(username, password) {
     const credentials = Buffer.from(username+':'+password).toString('base64')
     const requestOptions = {
@@ -39,6 +40,7 @@ function login(username, password) {
         });
 }
 
+// Sends a register user request to the server with the parameters recieved
 function register(username, password) {
     const requestOptions = {
         method: 'POST',
@@ -92,6 +94,7 @@ function handleResponse(response) {
     });
 }
 
+// Sends a request to the server to get the list of the users servers
 function getServers() {
     const requestOptions = {
         method: 'GET',
@@ -102,6 +105,7 @@ function getServers() {
     return fetch(apiUrl+`/servers`, requestOptions).then(handleResponse);
 }
 
+// Sends a request to the server to retrive information about the server with the id recieved in the parameter
 function getServerInfo(id) {
     const requestOptions = {
         method: 'GET',
@@ -112,6 +116,7 @@ function getServerInfo(id) {
     return fetch(apiUrl+`/server/`+id, requestOptions).then(handleResponse);
 }
 
+// Sends a request to the server to delete the server with the id recieved in the parameter
 function deleteServer(id){
     const requestOptions = {
         method: 'DELETE',
@@ -121,7 +126,7 @@ function deleteServer(id){
 
     return fetch(apiUrl+`/server/`+id, requestOptions).then(handleResponse);
 }
-
+// Sends a request to the server to update the server with the id recieved in the parameter
 function updateServer(id){
     const requestOptions = {
         method: 'PUT',

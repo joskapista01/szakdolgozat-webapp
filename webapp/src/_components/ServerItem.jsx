@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Defines an elemenet in the server list
 export default function ServerItem(props){
     const {id, serverName, playerCount, serverStatus, serverState, serverUrl} = props.serverInfo
     const {deleteServer, updateServer} = props.handlers

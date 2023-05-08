@@ -5,6 +5,7 @@ import ServerItem from '../_components/ServerItem';
 import Header from '../_components/Header';
 import Body from '../_components/Body';
 
+// Defines the HomePage component
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
@@ -19,6 +20,7 @@ class HomePage extends React.Component {
          this.updateState();
     }
 
+    // Updates the state to reload the contents of the page
     updateState(){
         this.setState({ 
             servers: [],
@@ -41,6 +43,8 @@ class HomePage extends React.Component {
             )
     }
 
+    // Creates handlers for the server events
+
     updateServer = async (serverId) => {
         await userService.updateServer(serverId)
         this.updateState()
@@ -58,6 +62,7 @@ class HomePage extends React.Component {
 
 
     render() {
+        // Collects the handlers that need to be passed to the child components
         const handlers = {
             updateServer: this.updateServer, 
             deleteServer: this.deleteServer,
