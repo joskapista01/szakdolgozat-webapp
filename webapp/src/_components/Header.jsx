@@ -1,12 +1,12 @@
 import React from "react";
-import { userService } from "../_services/user-service";
 import { Link } from 'react-router-dom';
 import "./header.css"
 
+// Defines the header for the HomaPage component
 export default function Header(){
     return(
         <header>
-            <Link to="/login" onClick={userService.logout}>Logout</Link>
+            <Link to="/login">Logout</Link>
         </header>
     )
 }

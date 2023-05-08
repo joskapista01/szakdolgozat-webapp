@@ -2,6 +2,7 @@ import React from 'react';
 
 import { userService } from '../_services/user-service';
 
+// Defines the LoginPage component
 class LoginPage extends React.Component {
     constructor(props) {
         super(props);
@@ -39,6 +40,7 @@ class LoginPage extends React.Component {
         this.setState({ loading: true });
         userService.register(username, password)
             .then(
+                // Logs in user with credentials and redirects to main page, if registration is successful
                 user => {
                     const { from } = this.props.location.state || { from: { pathname: "/" } };
                     this.props.history.push(from);
@@ -60,6 +62,7 @@ class LoginPage extends React.Component {
         this.setState({ loading: true });
         userService.login(username, password)
             .then(
+                // Redirects to main page if login is successful
                 user => {
                     const { from } = this.props.location.state || { from: { pathname: "/" } };
                     this.props.history.push(from);
@@ -69,12 +72,12 @@ class LoginPage extends React.Component {
     }
 
     render() {
-        const { username, password, submitted, loading, error } = this.state;
+        const { username, password, submitted, loading } = this.state;
         return (
             <div className='loginContainer'>
             <section className='login' id='login'>
                 <div className='form'>
-                <form name="form"/* onSubmit={this.handleSubmit}*/>
+                <form name="form">
                     <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
                         <input type="text" placeholder='Username' className="text" name="username" value={username} onChange={this.handleChange}/>
                         {submitted && !username &&

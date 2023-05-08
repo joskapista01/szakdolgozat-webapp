@@ -1,3 +1,4 @@
+// Returns the basic auth header from the stored credentials
 export function authHeader() {
     // return authorization header with basic auth credentials
     let user = JSON.parse(localStorage.getItem('user'));
